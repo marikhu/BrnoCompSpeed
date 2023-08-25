@@ -295,7 +295,7 @@ def computeRecall(matches):
 ##############################################################
 """
 def showErrorStats(systemsData):
-    print "SPEED ERROR STATS"
+    print ("SPEED ERROR STATS")
     outputAbs = {}
     outputRel = {}
     outputSign = {}
@@ -323,8 +323,8 @@ def showErrorStats(systemsData):
         outputRel[k] = errorsRel
         outputSign[k] = errorsSign
         tabulateData.append(("TOTAL", len(errorsAbs), np.mean(errorsAbs), np.median(errorsAbs), np.percentile(errorsAbs, USE_PERCENTIL), np.max(errorsAbs), np.mean(errorsRel), np.median(errorsRel), np.percentile(errorsRel, USE_PERCENTIL), np.max(errorsRel)))
-        print "SYSTEM: ", labelConversion(k)
-        print tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [km/h]", "median [km/h]", "%.0f percentil [km/h]"%USE_PERCENTIL, "worst [km/h]", "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"])
+        print ("SYSTEM: ", labelConversion(k))
+        print (tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [km/h]", "median [km/h]", "%.0f percentil [km/h]"%USE_PERCENTIL, "worst [km/h]", "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"]))
         print
         results[k]["TOTAL"] = {"abs": getErrorsStats(errorsAbs), "rel": getErrorsStats(errorsRel)}
 
@@ -334,7 +334,7 @@ def showErrorStats(systemsData):
 
 
 def showDistanceMeasurementErrors(systemsData):
-    print "DISTANCE ERROR STATS (ONLY TOWARDS FIRST VP)"
+    print ("DISTANCE ERROR STATS (ONLY TOWARDS FIRST VP)")
     outputSign = {}
     results = {}
     for k in RUN_FOR_SYSTEMS:
@@ -375,8 +375,8 @@ def showDistanceMeasurementErrors(systemsData):
                              np.mean(videoErrorsAbs), np.median(videoErrorsAbs), np.percentile(videoErrorsAbs, USE_PERCENTIL), np.max(videoErrorsAbs),
                              np.mean(videoErrorsRel), np.median(videoErrorsRel), np.percentile(videoErrorsRel, USE_PERCENTIL), np.max(videoErrorsRel),"%.4f, %.4f"%(np.mean(scalesStats), scale)))
         tabulateData.append(("TOTAL", len(errorsAbs), np.mean(errorsAbs), np.median(errorsAbs), np.percentile(errorsAbs, USE_PERCENTIL), np.max(errorsAbs), np.mean(errorsRel), np.median(errorsRel), np.percentile(errorsRel, USE_PERCENTIL), np.max(errorsRel), ""))
-        print "SYSTEM: ", labelConversion(k)
-        print tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [m]", "median [m]", "%.0f percentil [m]"%USE_PERCENTIL, "worst [m]", "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]", "correctScale, usedScale"])
+        print ("SYSTEM: ", labelConversion(k))
+        print (tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [m]", "median [m]", "%.0f percentil [m]"%USE_PERCENTIL, "worst [m]", "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]", "correctScale, usedScale"]))
         print
         outputSign[k] = errorsSign
         results[k][("TOTAL")] = {"abs": getErrorsStats(errorsAbs), "rel": getErrorsStats(errorsRel)}
@@ -387,27 +387,27 @@ def showDistanceMeasurementErrors(systemsData):
 
 
 def showFalsePositives(systemsData):
-    print "FALSE POSITIVE STATS"
+    print ("FALSE POSITIVE STATS")
     tabulateData = []
     for k in RUN_FOR_SYSTEMS:
         data = systemsData[k]
         totalFalsePositives = sum(map(lambda i: i["falsePositives"], data.itervalues()))
         tabulateData.append((labelConversion(k), totalFalsePositives))
-    print tabulate(tabulateData, headers=("system", "false positives"))
+    print (tabulate(tabulateData, headers=("system", "false positives")))
 
 
 def showRecalls(systemsData):
-    print "RECALL STATS"
+    print ("RECALL STATS")
     tabulateData = []
     for k in RUN_FOR_SYSTEMS:
         data = systemsData[k]
         totalFalsePositives = np.mean(map(lambda i: computeRecall(i["matches"]), data.itervalues()))
         tabulateData.append((labelConversion(k), totalFalsePositives))
-    print tabulate(tabulateData, headers=("system", "mean recall"))
+    print (tabulate(tabulateData, headers=("system", "mean recall")))
 
 
 def showPureCamCalibErrors(systemsData):
-    print "CALIBRATION ERRORS (ratios diffs)"
+    print ("CALIBRATION ERRORS (ratios diffs)")
     results = {}
     for k in RUN_FOR_SYSTEMS:
         results[k] = {}
@@ -415,7 +415,7 @@ def showPureCamCalibErrors(systemsData):
         tabulateData = []
         allCalibAbsErrors = []
         allCalibRelErrors = []
-        print "SYSTEM:", labelConversion(k)
+        print ("SYSTEM:", labelConversion(k))
         for sessionId, recordingId in RUN_FOR_VIDEOS:
             absCalibErrors = data[(sessionId, recordingId)]["absCalibErrors"]
             relCalibErrors = data[(sessionId, recordingId)]["relCalibErrors"]
@@ -428,8 +428,8 @@ def showPureCamCalibErrors(systemsData):
             tabulateData.append(currentRow)
         tabulateData.append(["TOTAL", len(allCalibAbsErrors)] + getErrorsStats(allCalibAbsErrors) + getErrorsStats(allCalibRelErrors))
         results[k]["TOTAL"] = {"abs": getErrorsStats(allCalibAbsErrors), "rel": getErrorsStats(allCalibRelErrors)}
-        print tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean ", "median ", "%.0f percentil "%USE_PERCENTIL, "worst ", 
-        "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"])
+        print (tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean ", "median ", "%.0f percentil "%USE_PERCENTIL, "worst ", 
+        "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"]))
         print
     print
     print
@@ -437,7 +437,7 @@ def showPureCamCalibErrors(systemsData):
 
 
 def showScaleCamCalibErrors(systemsData):
-    print "CALIBRATION ERRORS INCLUDING SCALE"
+    print ("CALIBRATION ERRORS INCLUDING SCALE")
     results = {}
     for k in RUN_FOR_SYSTEMS:
         results[k] = {}
@@ -445,7 +445,7 @@ def showScaleCamCalibErrors(systemsData):
         tabulateData = []
         allScaleAbsErrors = []
         allScaleRelErrors = []
-        print "SYSTEM:", labelConversion(k)
+        print ("SYSTEM:", labelConversion(k))
         for sessionId, recordingId in RUN_FOR_VIDEOS:
             absScaleErrors = data[(sessionId, recordingId)]["absScaleErrors"]
             relScaleErrors = data[(sessionId, recordingId)]["relScaleErrors"]
@@ -457,8 +457,8 @@ def showScaleCamCalibErrors(systemsData):
             tabulateData.append(currentRow)
             results[k][(sessionId, recordingId)] = {"abs": getErrorsStats(absScaleErrors), "rel": getErrorsStats(relScaleErrors)}
         tabulateData.append(["TOTAL", len(allScaleAbsErrors)] + getErrorsStats(allScaleAbsErrors) + getErrorsStats(allScaleRelErrors))
-        print tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [m]", "median [m]", "%.0f percentil [m]"%USE_PERCENTIL, "worst [m]", 
-        "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"])
+        print (tabulate(tabulateData, floatfmt=".2f", headers=["video", "#measurements", "mean [m]", "median [m]", "%.0f percentil [m]"%USE_PERCENTIL, "worst [m]", 
+        "mean [%]", "median [%]", "%.0f percentil [%%]"%USE_PERCENTIL, "worst [%]"]))
         results[k]["TOTAL"] = {"abs": getErrorsStats(allScaleAbsErrors), "rel": getErrorsStats(allScaleRelErrors)}
         print
     print
@@ -520,7 +520,7 @@ def initFig(figsize=(8,5)):
 def showSaveFig(filename, args):
     if args.saveFigures:
         filename = "figure_"+filename
-        print "Saving to %s"%filename
+        print ("Saving to %s"%filename)
         plt.savefig(filename, bbox_inches="tight",pad_inches=0.03)
     if not args.noShow:
         plt.show()
@@ -622,22 +622,26 @@ if __name__ == "__main__":
 
 
     print("Using custom config: %s"%args.config)
-    execfile(args.config)
-    print "MEASUREMENT_MODE: ", MEASUREMENT_MODE
-    print "RUN_FOR_VIDEOS: ", RUN_FOR_VIDEOS
+    #execfile(args.config)
+    exec(open(args.config).read())
+    print ("MEASUREMENT_MODE: ", MEASUREMENT_MODE)
+    print ("RUN_FOR_VIDEOS: ", RUN_FOR_VIDEOS)
     RUN_FOR_SYSTEMS = list(RUN_FOR_SYSTEMS)
-    print "RUN_FOR_SYSTEMS: ", RUN_FOR_SYSTEMS
+    print ("RUN_FOR_SYSTEMS: ", RUN_FOR_SYSTEMS)
 
     if not os.path.exists(RESULTS_CACHE_FILE) or args.recomputeCache:
         systemsData = {}
         for system in RUN_FOR_SYSTEMS:
-            print "Computing matches with gt for system %s"%(system)
+            print ("Computing matches with gt for system %s"%(system))
             systemsData[system] = {}
             for sessionId, recordingId in RUN_FOR_VIDEOS:
                 pTran = lambda p: os.path.join(getPathForRecording(sessionId, recordingId), p)    
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
                     data = json.load(f)
+                    print ("HERE1")
                     gtData = loadCache(pTran("gt_data.pkl"))
+                    print("HERE2")
+                    
                     prefilterData(data, gtData)
                     videoInfo, errorsCount = calculateSpeeds(sessionId, recordingId, data, gtData, system)
                     matches = computeMatches(gtData, data, sessionId, recordingId, system)
@@ -659,10 +663,10 @@ if __name__ == "__main__":
                                                                      "absScaleErrors": absScaleErrors,
                                                                      "relCalibErrors": relCalibErrors,
                                                                      "absCalibErrors": absCalibErrors}                    
-        print "Saving results to file %s"%RESULTS_CACHE_FILE
+        print ("Saving results to file %s"%RESULTS_CACHE_FILE)
         saveCache(RESULTS_CACHE_FILE, systemsData)
     else:
-        print "Loading results from file %s"%RESULTS_CACHE_FILE
+        print ("Loading results from file %s"%RESULTS_CACHE_FILE)
         systemsData = loadCache(RESULTS_CACHE_FILE)
         for system in RUN_FOR_SYSTEMS:
             if system not in systemsData:
