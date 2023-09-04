@@ -7,7 +7,11 @@ It needs to be in the results dir defined in dataset_info.py
 
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib", )
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib_vp2", )
-RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-plp-on-rects-10000frames", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-ptClosestToCam", )
+RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-ptClosestToCam", )
 
 """
 For which video the evaluation should be done. 
