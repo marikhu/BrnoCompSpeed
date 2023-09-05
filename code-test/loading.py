@@ -27,6 +27,7 @@ def computeCameraCalibration(_vp1, _vp2, _pp):
     vp2 = np.concatenate((_vp2, [1]))    
     pp = np.concatenate((_pp, [1]))    
     focal = getFocal(vp1, vp2, pp)
+    print("focal: %2d ",focal)
     vp1W = np.concatenate((_vp1, [focal]))    
     vp2W = np.concatenate((_vp2, [focal]))    
     ppW = np.concatenate((_pp, [0])) 
