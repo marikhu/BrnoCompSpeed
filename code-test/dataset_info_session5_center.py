@@ -17,7 +17,7 @@ RESULTS_DIR = TRANS_PATH("../results/")
 DATASET_SESSIONS = {
     "session4": {
         "recordings": {        
-            "left": {"fps": 50.0}
+            "center": {"fps": 50.0}
         }
     }
 }
@@ -30,7 +30,7 @@ ALL_SESSIONS = set(DATASET_SESSIONS.keys())
 
 ALL_VIDEOS = []
 for _sId in sorted(DATASET_SESSIONS):
-    for _rId in ("left",):
+    for _rId in ("center",):
         ALL_VIDEOS.append((_sId, _rId))
 
 SPLIT_TRAIN_SESSIONS = {}
