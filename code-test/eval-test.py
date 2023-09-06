@@ -54,6 +54,7 @@ def calculateSpeeds(sessionId, recordingId, data, gtData, system):
     laneDivLines = gtData["laneDivLines"]
     fps = gtData["fps"]
     errors = 0
+    carId = 0
     for car in data["cars"]:
         intersectionData = map(lambda l: getCarTimeAndSpatialIntersection(l, car["posX"], car["posY"], car["frames"]), lines)
         startSpatial, startFrame, startLineSpatial = intersectionData[-1]
@@ -88,6 +89,12 @@ def calculateSpeeds(sessionId, recordingId, data, gtData, system):
                 elapsedTime = abs(frames[i]-frames[i+pointsOffset])/fps
                 perFrameSpeeds.append(passedDistance/elapsedTime * 3.6)
             car["medianSpeed"] = np.median(perFrameSpeeds)
+            print("carId: %i", carId)
+            print("perFrameSpeeds: ", perFrameSpeeds)
+            print("frames: ", frames)
+            print("median speed: ", car["medianSpeed"])
+            print("\n")
+            carId += 1
 
         else:
             errors += 1
@@ -126,6 +133,11 @@ def computeMatches(gtData, data, sessionId, recordingId, systemId):
                 speed = filtered[0]["medianSpeed"]
             else:
                 assert False, "invalid measurement mode"
+            print("\nGT")
+            print("gtSpeed: ", gtSpeed)
+            print("speed: ", filtered[0]["speed"])
+            print("medianSpeed: ", filtered[0]["medianSpeed"])
+            print("filtered[0][id]" , filtered[0]["id"])
 
             matches.append({"matched": True,
                             "gtSpeed": gtSpeed,
@@ -638,10 +650,8 @@ if __name__ == "__main__":
                 pTran = lambda p: os.path.join(getPathForRecording(sessionId, recordingId), p)    
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s-test.json"%system)) as f:
                     data = json.load(f)
-                    print ("HERE1")
-                    gtData = loadCache(pTran("gt_data.pkl"))
-                    print("HERE2")
-                    
+                    print ("Loading gtData...")
+                    gtData = loadCache(pTran("gt_data.pkl"))                   
                     prefilterData(data, gtData)
                     videoInfo, errorsCount = calculateSpeeds(sessionId, recordingId, data, gtData, system)
                     matches = computeMatches(gtData, data, sessionId, recordingId, system)
