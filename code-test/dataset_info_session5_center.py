@@ -15,7 +15,7 @@ DATASET_BASE_PATH = TRANS_PATH("../dataset/")
 RESULTS_DIR = TRANS_PATH("../results/")
 
 DATASET_SESSIONS = {
-    "session4": {
+    "session5": {
         "recordings": {        
             "center": {"fps": 50.0}
         }
