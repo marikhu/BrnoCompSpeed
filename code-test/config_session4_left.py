@@ -24,7 +24,8 @@ It needs to be in the results dir defined in dataset_info.py
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-bottom-ctr-of-BB", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-no-MPI", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-all-frames-no-MPI", )
-RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-3MPI", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-3MPI", )
+RUN_FOR_SYSTEMS = ( "dummy_for_focal", )
 
 """
 For which video the evaluation should be done. 

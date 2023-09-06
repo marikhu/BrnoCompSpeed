@@ -630,7 +630,7 @@ if __name__ == "__main__":
 
     MEASUREMENT_MODE = args.mode
     assert MEASUREMENT_MODE in MEASUREMENT_MODES
-    RESULTS_CACHE_FILE = os.path.join(RESULTS_DIR, "resultsCache_session1_center_%s.pkl"%MEASUREMENT_MODE)
+    RESULTS_CACHE_FILE = os.path.join(RESULTS_DIR, "resultsCache_session4_left_%s.pkl"%MEASUREMENT_MODE)
 
 
     print("Using custom config: %s"%args.config)
