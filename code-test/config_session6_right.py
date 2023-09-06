@@ -1,0 +1,132 @@
+# -*- coding: utf-8 -*-
+
+"""
+For which systems the evaluation should be done.
+It needs to be in the results dir defined in dataset_info.py
+"""
+
+#RUN_FOR_SYSTEMS = ( "dubska_optimal_calib", )
+#RUN_FOR_SYSTEMS = ( "dubska_optimal_calib_vp2", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks", )
+
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-ptClosestToCam", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-plp-on-rects", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-re-H-est", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-bottom-ctr-of-BB", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-no-MPI", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-all-frames-no-MPI", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalblobtracks-10000frames-3MPI", )
+
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-plp-on-rects", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-ptClosestToCam", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-re-H-est", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-bottom-ctr-of-BB", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-no-MPI", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-all-frames-no-MPI", )
+#RUN_FOR_SYSTEMS = ( "session6_right-evalopticalflowtracks-10000frames-3MPI", )
+RUN_FOR_SYSTEMS = ( "dummy_for_focal", )
+
+"""
+For which video the evaluation should be done. 
+You can use keys A,B or C.
+See dataset_info.py for more information and 
+training videos for each splitting
+"""
+RUN_FOR_VIDEOS = SPLIT_TEST_VIDEOS["A"]
+
+
+"""
+Defines systems and thresholds
+If a speed estmiation error for a system in the set is larger
+then the threshold, the trajectory is shown
+WARNING: You need to delete the cached results (or use -rc argument)
+"""
+SHOW_BAD_FOR_SYSTEMS = set()
+#SHOW_BAD_FOR_SYSTEMS = set([True])
+SHOW_BAD_THRESHOLD = 30
+#SHOW_BAD_THRESHOLD = 2
+
+
+"""
+If true, vehicles' trajectories for which the computation
+of intersections wihh measurement lines failes are shown
+WARNING: You need to delete the cached results (or use -rc argument)
+"""
+#SHOW_ERRORS = False
+SHOW_ERRORS = True
+
+
+
+#%%
+"""
+##############################################################
+################### PRESENTATION HELPER FUNCTIONS ############
+##############################################################
+"""
+
+"""
+Conversions for plotting and printing statistics
+"""
+def labelConversion(systemId):
+    if systemId == "dubska_bmvc14":
+        return "FullACC [7]"
+    elif systemId == "dubska_optimal_scale":
+        return "OptScale"
+    elif systemId == "dubska_optimal_scale_vp2":
+        return "OptScaleVP2"
+    elif systemId == "dubska_optimal_calib":
+        return "OptCalib"
+    elif systemId == "dubska_optimal_calib_vp2":
+        return "OptCalibVP2"
+    return systemId
+
+"""
+Styles for cumulative histograms
+"""
+def plotStyleCumulativeHist(systemId):
+    styleDict = {"linewidth":2}
+    styleDict["markevery"] = 0.075
+    styleDict["markersize"] = 10
+
+    if systemId == "dubska_bmvc14":
+        styleDict["color"] = "black"
+        styleDict["marker"] = "o"
+    elif systemId == "dubska_optimal_scale":
+        styleDict["color"] = "#00B0F0"
+        styleDict["marker"] = "^"
+    elif systemId == "dubska_optimal_scale_vp2":
+        styleDict["color"] = "#69793e"
+        styleDict["marker"] = "v"
+    elif systemId == "dubska_optimal_calib":
+        styleDict["color"] = "#A40000"
+        styleDict["marker"] = "d"
+    elif systemId == "dubska_optimal_calib_vp2":
+        styleDict["color"] = "#FF9900"
+        styleDict["marker"] = "s"
+
+
+
+    
+    return styleDict
+
+
+"""
+Styles for error histograms
+"""
+def plotStyleErrorHist(systemId):
+    styleDict = {"linewidth":2}
+        
+    if systemId == "dubska_bmvc14":
+        styleDict["color"] = "black"
+    elif systemId == "dubska_optimal_scale":
+        styleDict["color"] = "#00B0F0"
+    elif systemId == "dubska_optimal_scale_vp2":
+        styleDict["color"] = "#69793e"
+    elif systemId == "dubska_optimal_calib":
+        styleDict["color"] = "#A40000"
+    elif systemId == "dubska_optimal_calib_vp2":
+        styleDict["color"] = "#FF9900"
+    
+    return styleDict
+    
