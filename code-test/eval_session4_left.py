@@ -27,11 +27,13 @@ from matplotlib.ticker import MultipleLocator
 #%%
 DEFAULT_CONFIG = "config_session4_left.py"
 MEASUREMENT_MODES = set(["median", "full"])
+#USE_PERCENTIL = 95.0
 USE_PERCENTIL = 95.0
 WIDTH = 1920
 HEIGHT = 1080
 SAFE_BORDER_OFFSET = 10
-MAX_TIME_DIFF = 0.2 # in seconds
+#MAX_TIME_DIFF = 0.2 # in seconds
+MAX_TIME_DIFF = 0.5 # in seconds -- The OFT tracks are shorter and hence may be farther away from the last intersection point considered by RADAR
 
 
 
@@ -90,8 +92,8 @@ def calculateSpeeds(sessionId, recordingId, data, gtData, system):
                 perFrameSpeeds.append(passedDistance/elapsedTime * 3.6)
             car["medianSpeed"] = np.median(perFrameSpeeds)
             print("carId: %i", carId)
-            print("perFrameSpeeds: ", perFrameSpeeds)
             print("frames: ", frames)
+            print("perFrameSpeeds: ", perFrameSpeeds)
             print("median speed: ", car["medianSpeed"])
             print("\n")
             carId += 1
