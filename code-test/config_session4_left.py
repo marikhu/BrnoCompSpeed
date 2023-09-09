@@ -19,6 +19,7 @@ It needs to be in the results dir defined in dataset_info.py
 #RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-3MPI-test", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-all-frames-3MPI", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-15frames-for-LM-opt", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-set-VP1-VP2-PP-scale", )
 
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-plp-on-rects-test", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-ptClosestToCam-test", )
@@ -30,7 +31,8 @@ It needs to be in the results dir defined in dataset_info.py
 #RUN_FOR_SYSTEMS = ( "dummy_for_focal-test", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-all-frames-3MPI", )
 #RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-new-P-2", )
-RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-15frames-for-LM-opt", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-15frames-for-LM-opt", )
+RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-set-VP1-VP2-PP-scale", )
 
 """
 For which video the evaluation should be done. 
