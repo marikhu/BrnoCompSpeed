@@ -5,16 +5,11 @@ For which systems the evaluation should be done.
 It needs to be in the results dir defined in dataset_info.py
 """
 
-"""
 RUN_FOR_SYSTEMS = ( "dubska_bmvc14", 
                     "dubska_optimal_scale", 
                     "dubska_optimal_scale_vp2", 
                     "dubska_optimal_calib", 
                     "dubska_optimal_calib_vp2")
-"""
-
-RUN_FOR_SYSTEMS = ( "dubska_optimal_calib",
-                    "dubska_bmvc14" )
 
 
 """
