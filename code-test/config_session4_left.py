@@ -7,32 +7,9 @@ It needs to be in the results dir defined in dataset_info.py
 
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib", )
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib_vp2", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-test", ) # PLP on masks
+RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks", )
+#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks", )
 
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-ptClosestToCam-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-plp-on-rects-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-re-H-est-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-bottom-ctr-of-BB-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-no-MPI-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-all-frames-no-MPI-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-3MPI-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-all-frames-3MPI", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-15frames-for-LM-opt", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalblobtracks-10000frames-set-VP1-VP2-PP-scale", )
-
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-plp-on-rects-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-ptClosestToCam-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-re-H-est-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-bottom-ctr-of-BB-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-no-MPI-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-all-frames-no-MPI-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-3MPI-test", )
-#RUN_FOR_SYSTEMS = ( "dummy_for_focal-test", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-all-frames-3MPI", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-new-P-2", )
-#RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-15frames-for-LM-opt", )
-RUN_FOR_SYSTEMS = ( "session4_left-evalopticalflowtracks-10000frames-set-VP1-VP2-PP-scale", )
 
 """
 For which video the evaluation should be done. 
@@ -50,9 +27,7 @@ then the threshold, the trajectory is shown
 WARNING: You need to delete the cached results (or use -rc argument)
 """
 SHOW_BAD_FOR_SYSTEMS = set()
-#SHOW_BAD_FOR_SYSTEMS = set([True])
 SHOW_BAD_THRESHOLD = 30
-#SHOW_BAD_THRESHOLD = 2
 
 
 """
@@ -60,8 +35,8 @@ If true, vehicles' trajectories for which the computation
 of intersections wihh measurement lines failes are shown
 WARNING: You need to delete the cached results (or use -rc argument)
 """
-#SHOW_ERRORS = False
-SHOW_ERRORS = True
+SHOW_ERRORS = False
+#SHOW_ERRORS = True
 
 
 

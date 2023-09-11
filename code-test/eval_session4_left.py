@@ -32,8 +32,8 @@ USE_PERCENTIL = 95.0
 WIDTH = 1920
 HEIGHT = 1080
 SAFE_BORDER_OFFSET = 10
-#MAX_TIME_DIFF = 0.2 # in seconds
-MAX_TIME_DIFF = 0.5 # in seconds -- The OFT tracks are shorter and hence may be farther away from the last intersection point considered by RADAR
+#MAX_TIME_DIFF = 0.5 # in seconds
+MAX_TIME_DIFF = 0.8 # in seconds -- The OFT tracks are shorter and hence may be farther away from the last intersection point considered by RADAR
 
 
 

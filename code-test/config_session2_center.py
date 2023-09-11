@@ -7,25 +7,9 @@ It needs to be in the results dir defined in dataset_info.py
 
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib", )
 #RUN_FOR_SYSTEMS = ( "dubska_optimal_calib_vp2", )
+RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks", )
 #RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks", )
 
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-ptClosestToCam", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-plp-on-rects", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-re-H-est", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-bottom-ctr-of-BB", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-no-MPI", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-all-frames-no-MPI", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalblobtracks-10000frames-3MPI", )
-
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-plp-on-rects", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-ptClosestToCam", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-re-H-est", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-bottom-ctr-of-BB", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-no-MPI", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-all-frames-no-MPI", )
-#RUN_FOR_SYSTEMS = ( "session2_center-evalopticalflowtracks-10000frames-3MPI", )
-RUN_FOR_SYSTEMS = ( "dummy_for_focal", )
 
 """
 For which video the evaluation should be done. 
@@ -43,9 +27,7 @@ then the threshold, the trajectory is shown
 WARNING: You need to delete the cached results (or use -rc argument)
 """
 SHOW_BAD_FOR_SYSTEMS = set()
-#SHOW_BAD_FOR_SYSTEMS = set([True])
 SHOW_BAD_THRESHOLD = 30
-#SHOW_BAD_THRESHOLD = 2
 
 
 """
@@ -53,8 +35,8 @@ If true, vehicles' trajectories for which the computation
 of intersections wihh measurement lines failes are shown
 WARNING: You need to delete the cached results (or use -rc argument)
 """
-#SHOW_ERRORS = False
-SHOW_ERRORS = True
+SHOW_ERRORS = False
+#SHOW_ERRORS = True
 
 
 

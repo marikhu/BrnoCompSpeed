@@ -12,7 +12,7 @@ else:
     TRANS_PATH = lambda p: p
 
 DATASET_BASE_PATH = TRANS_PATH("../dataset/")
-RESULTS_DIR = TRANS_PATH("../results/")
+RESULTS_DIR = TRANS_PATH("../results/run1/")
 
 DATASET_SESSIONS = {
     "session6": {

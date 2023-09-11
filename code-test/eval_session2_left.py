@@ -31,7 +31,7 @@ USE_PERCENTIL = 95.0
 WIDTH = 1920
 HEIGHT = 1080
 SAFE_BORDER_OFFSET = 10
-MAX_TIME_DIFF = 0.2 # in seconds
+MAX_TIME_DIFF = 0.5 # in seconds
 
 
 
@@ -648,7 +648,7 @@ if __name__ == "__main__":
             systemsData[system] = {}
             for sessionId, recordingId in RUN_FOR_VIDEOS:
                 pTran = lambda p: os.path.join(getPathForRecording(sessionId, recordingId), p)    
-                with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s-test.json"%system)) as f:
+                with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
                     data = json.load(f)
                     print ("Loading gtData...")
                     gtData = loadCache(pTran("gt_data.pkl"))                   
