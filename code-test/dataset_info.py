@@ -15,22 +15,50 @@ DATASET_BASE_PATH = TRANS_PATH("../dataset/")
 RESULTS_DIR = TRANS_PATH("../results/run1/")
 
 DATASET_SESSIONS = {
+    "session0": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 25.0},
+            "right": {"fps": 50.0}
+        }
+        
+    },
+    "session1": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
+        }
+    },
+    "session2": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
+        }
+    },
+    "session3": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
+        }
+    },
     "session4": {
         "recordings": {        
-            "left": {"fps": 50.0}
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
         }
     }
 }
-
-
-
 
 
 ALL_SESSIONS = set(DATASET_SESSIONS.keys())
 
 ALL_VIDEOS = []
 for _sId in sorted(DATASET_SESSIONS):
-    for _rId in ("left",):
+    for _rId in ("left", "center", "right"):
         ALL_VIDEOS.append((_sId, _rId))
 
 SPLIT_TRAIN_SESSIONS = {}
