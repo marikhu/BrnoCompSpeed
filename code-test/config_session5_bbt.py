@@ -5,8 +5,7 @@ For which systems the evaluation should be done.
 It needs to be in the results dir defined in dataset_info.py
 """
 
-RUN_FOR_SYSTEMS = ( "evalopticalflowtracks", )
-#RUN_FOR_SYSTEMS = ( "evalblobtracks", )
+RUN_FOR_SYSTEMS = ( "evalblobtracks", )
 
 
 """
