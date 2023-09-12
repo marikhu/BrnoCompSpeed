@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from dataset_info import *
+from dataset_info_bbt import *
 from utils import *
 from loading import *
 
@@ -25,7 +25,7 @@ from matplotlib.ticker import MultipleLocator
 
 
 #%%
-DEFAULT_CONFIG = "config.py"
+DEFAULT_CONFIG = "config_bbt.py"
 MEASUREMENT_MODES = set(["median", "full"])
 USE_PERCENTIL = 95.0
 WIDTH = 1920
@@ -638,9 +638,7 @@ if __name__ == "__main__":
                 pTran = lambda p: os.path.join(getPathForRecording(sessionId, recordingId), p)    
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
                     data = json.load(f)
-                    print ("HERE1")
                     gtData = loadCache(pTran("gt_data.pkl"))
-                    print("HERE2")
                     
                     prefilterData(data, gtData)
                     videoInfo, errorsCount = calculateSpeeds(sessionId, recordingId, data, gtData, system)

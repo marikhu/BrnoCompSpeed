@@ -5,9 +5,7 @@ For which systems the evaluation should be done.
 It needs to be in the results dir defined in dataset_info.py
 """
 
-#RUN_FOR_SYSTEMS = ( "evalopticalflowtracks", )
 RUN_FOR_SYSTEMS = ( "evalblobtracks", )
-
 
 """
 For which video the evaluation should be done. 
@@ -25,7 +23,9 @@ then the threshold, the trajectory is shown
 WARNING: You need to delete the cached results (or use -rc argument)
 """
 SHOW_BAD_FOR_SYSTEMS = set()
+#SHOW_BAD_FOR_SYSTEMS = set([True])
 SHOW_BAD_THRESHOLD = 30
+#SHOW_BAD_THRESHOLD = 2
 
 
 """

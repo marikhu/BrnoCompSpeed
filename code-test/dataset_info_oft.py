@@ -50,7 +50,24 @@ DATASET_SESSIONS = {
             "center": {"fps": 50.0},
             "right": {"fps": 50.0}
         }
+    },
+    "session5": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
+        }
+    },
+    "session6": {
+        "recordings": {        
+            "left": {"fps": 50.0},
+            "center": {"fps": 50.0},
+            "right": {"fps": 50.0}
+        },
+        "invalidLanes": set([2])
+        
     }
+    
 }
 
 
@@ -58,7 +75,7 @@ ALL_SESSIONS = set(DATASET_SESSIONS.keys())
 
 ALL_VIDEOS = []
 for _sId in sorted(DATASET_SESSIONS):
-    for _rId in ("left", "center", "right"):
+    for _rId in ("right","center"):
         ALL_VIDEOS.append((_sId, _rId))
 
 SPLIT_TRAIN_SESSIONS = {}
