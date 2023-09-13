@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 from __future__ import division
-from dataset_info_bbt import *
+from dataset_info import *
 from utils import *
 from loading import *
 

@@ -25,7 +25,7 @@ from matplotlib.ticker import MultipleLocator
 
 
 #%%
-DEFAULT_CONFIG = "config_session5_bbt.py"
+DEFAULT_CONFIG = "config_session_bbt.py"
 MEASUREMENT_MODES = set(["median", "full"])
 USE_PERCENTIL = 95.0
 WIDTH = 1920
