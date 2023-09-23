@@ -637,6 +637,7 @@ if __name__ == "__main__":
             for sessionId, recordingId in RUN_FOR_VIDEOS:
                 pTran = lambda p: os.path.join(getPathForRecording(sessionId, recordingId), p)    
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
+                    print("Loading results file: ", f)
                     data = json.load(f)
                     gtData = loadCache(pTran("gt_data.pkl"))
                     
