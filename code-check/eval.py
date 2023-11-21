@@ -640,7 +640,7 @@ if __name__ == "__main__":
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
                     data = json.load(f)
                     print ("HERE1")
-                    gtData = loadCache(pTran("gt_data.pkl"))
+                    gtData = loadCache(pTran("gt_data_out.pkl"))
                     print("HERE2")
                     
                     prefilterData(data, gtData)

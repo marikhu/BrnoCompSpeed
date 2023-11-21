@@ -6,7 +6,7 @@ WORKDIR=/media/almond/works
 
 xhost +
 
-docker run --gpus all -it --rm --privileged --name u18 \
+docker run --gpus all -it --rm --privileged --name python-2.7-u18 \
 	-v /tmp/.X11-unix:/tmp/.X11-unix \
 	-e DISPLAY=$DISPLAY \
 	-e TZ=Asia/Bangkok \
