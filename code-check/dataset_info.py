@@ -11,8 +11,8 @@ if platform.system() == "Windows":
 else:
     TRANS_PATH = lambda p: p
 
-DATASET_BASE_PATH = TRANS_PATH("../dataset/")
-RESULTS_DIR = TRANS_PATH("../results/check/")
+DATASET_BASE_PATH = TRANS_PATH("../dataset-check/")
+RESULTS_DIR = TRANS_PATH("../results-check/")
 
 DATASET_SESSIONS = {
     "session1": {
