@@ -640,12 +640,13 @@ if __name__ == "__main__":
                 with open(os.path.join(RESULTS_DIR, "%s_%s"%(sessionId, recordingId), "system_%s.json"%system)) as f:
                     data = json.load(f)
                     print ("HERE1")
-                    gtData = loadCache(pTran("gt_data_out.pkl"))
+                    gtData = loadCache(pTran("gt_data_3_cars.pkl"))
                     print("HERE2")
                     
                     prefilterData(data, gtData)
                     videoInfo, errorsCount = calculateSpeeds(sessionId, recordingId, data, gtData, system)
                     matches = computeMatches(gtData, data, sessionId, recordingId, system)
+                    print(matches);
                     falsePositives = computeFalsePositives(gtData, matches, data) + errorsCount
                     
                     vp1, vp2, vp3, pp, roadPlane, focal = computeCameraCalibration(data["camera_calibration"]["vp1"],
