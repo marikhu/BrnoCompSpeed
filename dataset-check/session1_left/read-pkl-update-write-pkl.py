@@ -31,7 +31,7 @@ car_ids = [car['carId'] for car in dictionary_data.get(key_to_update, [])]
 print(car_ids)
 
 # Update the list of dictionaries for the specified key
-condition = lambda car: car.get('carId', 0) > 100
+condition = lambda car: car.get('carId', 0) > 3
 if key_to_update in dictionary_data and isinstance(dictionary_data[key_to_update], list):
     dictionary_data[key_to_update] = [car for car in dictionary_data[key_to_update] if not condition(car)]
 
