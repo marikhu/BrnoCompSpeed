@@ -117,14 +117,22 @@ def computeMatches(gtData, data, sessionId, recordingId, systemId):
     matches = []
     for gtCar in gtData["cars"]:
         filtered = filter(lambda i: "laneIndex" in i and i["laneIndex"] in gtCar["laneIndex"], data["cars"])
+        print("filtered")
+        print(filtered)
         gtTimeIntersection = gtCar["intersections"][-1]["videoTime"]
         filtered.sort(key=lambda i: abs(i["timeIntersectionLast"]-gtTimeIntersection))
         if len(filtered) > 0 and abs(filtered[0]["timeIntersectionLast"]-gtTimeIntersection) < MAX_TIME_DIFF:
             gtSpeed = gtCar["speed"]
             if MEASUREMENT_MODE == "full":
                 speed = filtered[0]["speed"]
+                speed_median_mode = filtered[0]["medianSpeed"]
+                print("speed_median_mode: ", speed_median_mode)
+                print("speed_full_mode: ", speed)
             elif MEASUREMENT_MODE == "median":
                 speed = filtered[0]["medianSpeed"]
+                speed_full_mode = filtered[0]["speed"]
+                print("speed_median_mode: ", speed)
+                print("speed_full_mode: ", speed_full_mode)
             else:
                 assert False, "invalid measurement mode"
 
